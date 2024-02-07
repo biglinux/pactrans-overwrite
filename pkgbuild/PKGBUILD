@@ -39,4 +39,5 @@ LD_LIBRARY_PATH=/usr/share/biglinux/pactrans/lib/ /usr/share/biglinux/pactrans/b
   # Create static version in /usr/bin/pactrans-overwrite-static
   pip install --break-system-packages staticx
   LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$pkgdir/usr/share/biglinux/pactrans/lib/" staticx "$pkgdir"/usr/share/biglinux/pactrans/bin/pactrans "$pkgdir"/usr/bin/pactrans-overwrite-static
+  chmod 755 "$pkgdir"/usr/bin/pactrans-overwrite-static
 }
