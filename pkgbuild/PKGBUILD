@@ -28,9 +28,15 @@ package() {
   cd pactrans-overwrite
   make DESTDIR="$pkgdir" PREFIX=/usr/share/biglinux/pactrans install
   install -Dm644 COPYING "$pkgdir"/usr/share/licenses/"$pkgname"/COPYING
+
+  # Script to easy usage without conflict with pactrans from pacutils
   mkdir -p "$pkgdir"/usr/bin
   echo '#!/usr/bin/env bash
 
 LD_LIBRARY_PATH=/usr/share/biglinux/pactrans/lib/ /usr/share/biglinux/pactrans/bin/pactrans $@' > "$pkgdir"/usr/bin/pactrans-overwrite
   chmod +x "$pkgdir"/usr/bin/pactrans-overwrite
+
+  # Create static version in /usr/bin/pactrans-overwrite-static
+  pip install --break-system-packages staticx
+  LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$pkgdir/usr/share/biglinux/pactrans/lib/" staticx "$pkgdir"/usr/share/biglinux/pactrans/bin/pactrans "$pkgdir"/usr/bin/pactrans-overwrite-static
 }
