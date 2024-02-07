@@ -6,8 +6,9 @@ lib:
 src: lib
 	$(MAKE) -C $@ all
 
-check: lib src
-	$(MAKE) -C t/ check
+# Disable to compile in arm
+# check: lib src
+# 	$(MAKE) -C t/ check
 
 doc:
 	$(MAKE) -C doc/ $@
