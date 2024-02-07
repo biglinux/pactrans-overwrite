@@ -32,4 +32,5 @@ package() {
   echo '#!/usr/bin/env bash
 
 LD_LIBRARY_PATH=/usr/share/biglinux/pactrans/lib/ /usr/share/biglinux/pactrans/bin/pactrans $@' > "$pkgdir"/usr/bin/pactrans-overwrite
+  chmod +x "$pkgdir"/usr/bin/pactrans-overwrite
 }
