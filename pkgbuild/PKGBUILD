@@ -30,4 +30,8 @@ package() {
   cd pactrans-overwrite
   make DESTDIR="$pkgdir" PREFIX=/usr/share/biglinux/pactrans install
   install -Dm644 COPYING "$pkgdir"/usr/share/licenses/"$pkgname"/COPYING
+  mkdir -p "$pkgdir"/usr/bin
+  echo '#!/usr/bin/env bash
+
+LD_LIBRARY_PATH=/usr/share/biglinux/pactrans/lib/ /usr/share/biglinux/pactrans/bin/pactrans $@' > "$pkgdir"/usr/bin/pactrans-overwrite
 }
