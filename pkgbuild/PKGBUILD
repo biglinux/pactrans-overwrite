@@ -15,11 +15,13 @@ source=("git+https://github.com/bigbruno/pactrans-overwrite.git")
 sha1sums=('SKIP')
 
 build() {
+  mkdir -p /var/cache/manjaro-arm-tools/pkg/pkg-cache/
   cd pactrans-overwrite
   make PREFIX=/usr/share/biglinux/pactrans CFLAGS="$CFLAGS $LDFLAGS" SYSCONFDIR=/etc LOCALSTATEDIR=/var
 }
 
 check() {
+  mkdir -p /var/cache/manjaro-arm-tools/pkg/pkg-cache/
   cd pactrans-overwrite
   make check
 }
