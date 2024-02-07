@@ -9,7 +9,7 @@ arch=('x86_64')
 license=('MIT')
 
 depends=('pacman')
-makedepends=('git' 'perl' 'pod2man')
+makedepends=('git' 'perl' 'pod2man' 'python-pipx')
 
 source=("git+https://github.com/bigbruno/pactrans-overwrite.git")
 sha1sums=('SKIP')
