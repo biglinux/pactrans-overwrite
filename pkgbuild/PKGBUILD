@@ -15,17 +15,17 @@ source=("git+https://github.com/bigbruno/pactrans-overwrite.git")
 sha1sums=('SKIP')
 
 build() {
-  cd pacutils
+  cd pactrans-overwrite
   make PREFIX=/usr/share/biglinux/pactrans CFLAGS="$CFLAGS $LDFLAGS" SYSCONFDIR=/etc LOCALSTATEDIR=/var
 }
 
 check() {
-  cd pacutils
+  cd pactrans-overwrite
   make check
 }
 
 package() {
-  cd pacutils
+  cd pactrans-overwrite
   make DESTDIR="$pkgdir" PREFIX=/usr/share/biglinux/pactrans install
   install -Dm644 COPYING "$pkgdir"/usr/share/licenses/"$pkgname"/COPYING
 }

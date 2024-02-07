@@ -1,3 +1,7 @@
+This is a fork to include the --overwrite option to the pactrans command that is part of pacutils, the original pactutils code can be seen at: https://github.com/andrewgregory/pacutils
+
+The patch used in Manjaro was also included: https://gitlab.manjaro.org/packages/community/pacutils/-/blob/master/SyncFirst.patch
+
 =head1 NAME
 
 pacutils - utility library for libalpm front-ends
