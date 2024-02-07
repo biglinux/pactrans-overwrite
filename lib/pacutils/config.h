@@ -55,6 +55,7 @@ typedef enum pu_config_option_t {
   PU_CONFIG_OPTION_NOEXTRACT,
   PU_CONFIG_OPTION_REPOS,
   PU_CONFIG_OPTION_CACHEDIRS,
+  PU_CONFIG_OPTION_SYNCFIRST,
 
   PU_CONFIG_OPTION_SERVER,
 
@@ -108,6 +109,7 @@ typedef struct pu_config_t {
   alpm_list_t *ignorepkgs;
   alpm_list_t *noextract;
   alpm_list_t *noupgrade;
+  alpm_list_t *syncfirst;
 
   int cleanmethod;
 

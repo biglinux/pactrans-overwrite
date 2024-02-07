@@ -34,19 +34,6 @@ ifneq ($(GITTAG),)
 endif
 
 OBJECTS = \
-		  paccapability \
-		  paccheck \
-		  pacconf \
-		  pacfile \
-		  pacinfo \
-		  pacini \
-		  paclock \
-		  paclog \
-		  pacrepairdb \
-		  pacrepairfile \
-		  pacreport \
-		  pacsift \
-		  pacsync \
 		  pactrans
 
 all: $(OBJECTS) pacinstall pacremove

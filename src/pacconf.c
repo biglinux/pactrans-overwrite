@@ -298,6 +298,7 @@ void dump_options(void) {
   show_list_str("IgnoreGroup", config->ignoregroups);
   show_list_str("NoUpgrade", config->noupgrade);
   show_list_str("NoExtract", config->noextract);
+  show_list_str("SyncFirst", config->syncfirst);
   show_list_str("Architecture", config->architectures);
 
   show_str("XferCommand", config->xfercommand);
@@ -406,6 +407,8 @@ int list_directives(alpm_list_t *directives) {
       show_list_str("NoUpgrade", config->noupgrade);
     } else if (strcasecmp(i->data, "NoExtract") == 0) {
       show_list_str("NoExtract", config->noextract);
+    } else if (strcasecmp(i->data, "SyncFirst") == 0) {
+      show_list_str("SyncFirst", config->syncfirst);
     } else if (strcasecmp(i->data, "Architecture") == 0) {
       show_list_str("Architecture", config->architectures);
 

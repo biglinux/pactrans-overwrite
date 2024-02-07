@@ -65,6 +65,7 @@ struct _pu_config_setting {
   {"NoUpgrade",       PU_CONFIG_OPTION_NOUPGRADE},
   {"NoExtract",       PU_CONFIG_OPTION_NOEXTRACT},
   {"CacheDir",        PU_CONFIG_OPTION_CACHEDIRS},
+  {"SyncFirst",       PU_CONFIG_OPTION_SYNCFIRST},
 
   {"Usage",           PU_CONFIG_OPTION_USAGE},
 
@@ -540,6 +541,7 @@ void pu_config_merge(pu_config_t *dest, pu_config_t *src) {
   MERGELIST(dest->ignorepkgs, src->ignorepkgs);
   MERGELIST(dest->ignoregroups, src->ignoregroups);
   MERGELIST(dest->repos, src->repos);
+  MERGELIST(dest->syncfirst, src->syncfirst);
 
   MERGESL(dest->siglevel, dest->siglevel_mask,
       src->siglevel, src->siglevel_mask);
@@ -801,6 +803,9 @@ int pu_config_reader_next(pu_config_reader_t *reader) {
           break;
         case PU_CONFIG_OPTION_CACHEDIRS:
           APPENDLIST(&config->cachedirs, mini->value);
+          break;
+        case PU_CONFIG_OPTION_SYNCFIRST:
+          APPENDLIST(&config->syncfirst, mini->value);
           break;
         case PU_CONFIG_OPTION_PARALLELDOWNLOADS: {
           char *end;

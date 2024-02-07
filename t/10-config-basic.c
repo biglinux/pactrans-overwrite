@@ -35,6 +35,7 @@ char buf[] =
     "IgnorePkg = ignorepkga\n"
     "IgnorePkg = ignorepkgb\n"
     " IgnoreGroup = ignoregroupa ignoregroupb \n"
+    " SyncFirst = syncfirsta syncfirstb\n"
     "Architecture = i686\n"
     "Architecture = x86_64\n"
     "ParallelDownloads = 3\n"
@@ -110,7 +111,7 @@ int main(void) {
 
   while (pu_config_reader_next(reader) != -1);
 
-  tap_plan(41);
+  tap_plan(44);
 
   tap_ok(reader->eof, "eof reached");
   tap_ok(!reader->error, "no error");
@@ -169,6 +170,10 @@ int main(void) {
   is_str_list(i, "holdpkga", "HoldPkg a");
   is_str_list(i, "holdpkgb", "HoldPkg b");
   is_list_exhausted(i, "holdpkgs");
+  i = config->syncfirst;
+  is_str_list(i, "syncfirsta", "SyncFirst a");
+  is_str_list(i, "syncfirstb", "SyncFirst b");
+  is_list_exhausted(i, "syncfirst");
 
   tap_ok(config->repos != NULL, "repo list");
 
