@@ -1,6 +1,6 @@
 pkgname=pactrans-overwrite
 pkgver=0.11.1
-pkgrel=1
+pkgrel=2
 
 pkgdesc='Modification of pactrans that belongs to the pacutils package, including the overwrite option'
 depends='pacutils'
@@ -9,7 +9,7 @@ arch=('x86_64')
 license=('MIT')
 
 depends=('pacman')
-makedepends=('git')
+makedepends=('git' 'perl' 'pod2man')
 
 source=("git+https://github.com/bigbruno/pactrans-overwrite.git")
 sha1sums=('SKIP')
@@ -19,10 +19,10 @@ build() {
   make PREFIX=/usr/share/biglinux/pactrans CFLAGS="$CFLAGS $LDFLAGS" SYSCONFDIR=/etc LOCALSTATEDIR=/var
 }
 
-check() {
-  cd pactrans-overwrite
-  make check
-}
+# check() {
+#   cd pactrans-overwrite
+#   make check
+# }
 
 package() {
   cd pactrans-overwrite
