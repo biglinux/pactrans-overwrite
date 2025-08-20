@@ -54,6 +54,7 @@ char buf[] =
     "\n"
     "[core]\n"
     "Server = $repo:$arch\n"
+    "CacheServer = $repo:$arch\n"
     "";
 
 #define is_list_exhausted(l, name) do { \
@@ -111,7 +112,7 @@ int main(void) {
 
   while (pu_config_reader_next(reader) != -1);
 
-  tap_plan(44);
+  tap_plan(42);
 
   tap_ok(reader->eof, "eof reached");
   tap_ok(!reader->error, "no error");
@@ -181,6 +182,7 @@ int main(void) {
   tap_ok(repo != NULL, "core");
   tap_is_str(repo->name, "core", "repo->name == 'core'");
   tap_is_str(repo->servers->data, "core:i686", "[core] server");
+  tap_is_str(repo->cacheservers->data, "core:i686", "[core] cache server");
 
   return tap_finish();
 }
