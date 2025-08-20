@@ -1,6 +1,6 @@
 pkgname=pactrans-overwrite
-pkgver=0.11.1
-pkgrel=3
+pkgver=0.15.0
+pkgrel=1
 
 pkgdesc='Modification of pactrans that belongs to the pacutils package, including the overwrite option'
 depends='pacutils'
