@@ -8,8 +8,14 @@ url='https://github.com/bigbruno/pactrans-overwrite'
 arch=('x86_64')
 license=('MIT')
 
-depends=('pacman')
-makedepends=('git' 'perl' 'pod2man' 'python-pip' 'python-setuptools' 'python-pypatchelf')
+depends=(
+  'glibc'
+  'libarchive'
+  'pacman'
+)
+makedepends=('git')
+
+
 
 source=("git+https://github.com/bigbruno/pactrans-overwrite.git")
 sha1sums=('SKIP')
