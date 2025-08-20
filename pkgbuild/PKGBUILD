@@ -7,8 +7,6 @@ depends='pacutils'
 url='https://github.com/bigbruno/pactrans-overwrite'
 arch=('x86_64')
 license=('MIT')
-
-depends=('pacman')
 makedepends=('git' 'perl' 'python-pip' 'python-setuptools' 'python-pypatchelf')
 license=('MIT')
 depends=(
@@ -16,7 +14,7 @@ depends=(
   'libarchive'
   'pacman'
 )
-makedepends=('git')
+
 
 
 
